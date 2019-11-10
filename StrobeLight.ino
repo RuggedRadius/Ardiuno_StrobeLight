@@ -30,16 +30,15 @@ void setup() {
 
   // Begin Serial output
   Serial.begin(9600);
-  if (setTempoModeOn == 1)
-  {
-    Serial.println("*Tempo Mode ON*");
-    Serial.print("Tempo = ");    
-    Serial.println(TempoCalc(tempo));
-    currentMode = 0;
-  }
 
-  PlayTone1();
-      
+  // Header
+  Serial.println("\t\t\t****************************************************************");
+  Serial.println("\t\t\t\t\tArduino Strobe Light\n");
+  Serial.println("\t\t\t\t\t\tCode by Ben Royans © 2019");
+  Serial.println("\t\t\t****************************************************************\n\n");
+
+  // Startup Tone
+  Arpeggio(5, 500, 100, 2000, 100);    
 }
 
 void loop() 
@@ -62,8 +61,6 @@ void loop()
       }    
       break;    
   }
-
-
 }
 
 void UpdateSwitch() 
@@ -77,14 +74,14 @@ void UpdateSwitch()
     {
       setTempoModeOn = 0;
       PlayTone2();
-      Serial.println("*** TEMPO MODE OFF ***");
+      Serial.println("*** VARIABLE MODE ***");
       delay(500);
     }
     else
     {
       setTempoModeOn = 1;
       PlayTone3();
-      Serial.println("*** TEMPO MODE ON ***");
+      Serial.println("*** TEMPO MODE ***");
       delay(500);
     }
   }
@@ -144,4 +141,13 @@ void RBG(int red, int blue, int green)
    analogWrite(9, red);
    analogWrite(10, blue);
    analogWrite(11, green);
+}
+
+void Arpeggio(int notes, int interval, int timing, int initial, int del)
+{
+  for (int i = 0; i < notes; i++)
+  {
+    tone(buzzer, (initial + (interval * i)), timing);
+    delay(del);
+  }
 }
