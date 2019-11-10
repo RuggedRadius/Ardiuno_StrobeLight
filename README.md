@@ -1,4 +1,4 @@
-# Ardiuno_StrobeLight
+# Ardiuno StrobeLight
 ##### By Ben Royans
 
 ## Instructions
