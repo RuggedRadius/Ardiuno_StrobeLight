@@ -11,6 +11,7 @@
 *.gitattributes text
 .gitignore      text
 *.md            text
+*.c++ linguist-language=C#
 
 #
 # Exclude files from exporting
