@@ -3,7 +3,7 @@
 
 ## Instructions
 * Download and open the project in Arduino.
-* Alter Pin definitions are required.
+* Alter Pin definitions as required.
 * [Optional] Set tempo to BPM value.
 * Upload to Arduino.
 
